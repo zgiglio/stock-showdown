@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Marks both portfolios to market and regenerates data/snapshot.json,
+// Marks Claude's book to market and regenerates data/snapshot.json,
 // data/history.json, and arena.html (self-contained, shareable copy).
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -8,11 +8,9 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = f => JSON.parse(readFileSync(join(root, f), 'utf8'));
 
-const zach = read('data/zach.json');
 const claude = read('data/claude.json');
 const trades = read('data/trades.json');
-
-const symbols = [...new Set([...zach.positions, ...claude.positions].map(p => p.symbol))];
+const symbols = [...new Set([...claude.positions.map(p => p.symbol), claude.benchmark.symbol])];
 
 async function quote(sym) {
   try {
@@ -28,45 +26,46 @@ async function quote(sym) {
 const quotes = {};
 await Promise.all(symbols.map(async s => { quotes[s] = await quote(s); }));
 
-function mark(book) {
-  let value = book.cash, dayChange = 0;
-  const positions = book.positions.map(p => {
-    const q = quotes[p.symbol];
-    const price = q?.price ?? p.baselinePrice;
-    const val = price * p.shares;
-    value += val;
-    if (q?.prevClose) dayChange += (q.price - q.prevClose) * p.shares;
-    return { ...p, price, value: +val.toFixed(2), stale: !q };
-  }).sort((a, b) => b.value - a.value);
-  return {
-    owner: book.owner, cash: book.cash, value: +value.toFixed(2),
-    dayChange: +dayChange.toFixed(2),
-    retPct: +((value / book.baselineValue - 1) * 100).toFixed(3),
-    baselineValue: book.baselineValue, positions,
-  };
-}
+const today = new Date().toISOString().slice(0, 10);
+let value = claude.cash, dayChange = 0;
+const positions = claude.positions.map(p => {
+  const q = quotes[p.symbol];
+  const price = q?.price ?? p.entryPrice;
+  const val = price * p.shares;
+  value += val;
+  // Positions entered today count from entry price, not yesterday's close —
+  // we only get credit for moves we actually held through.
+  const basis = p.entryDate === today ? p.entryPrice : q?.prevClose;
+  if (basis) dayChange += (price - basis) * p.shares;
+  return { ...p, price, value: +val.toFixed(2), stale: !q };
+}).sort((a, b) => b.value - a.value);
+
+const spyQ = quotes[claude.benchmark.symbol];
+const spyRet = spyQ ? +((spyQ.price / claude.benchmark.basePrice - 1) * 100).toFixed(3) : null;
 
 const snapshot = {
   asOf: new Date().toISOString(),
-  startDate: zach.baselineDate,
-  zach: mark(zach),
-  claude: mark(claude),
+  startDate: claude.baselineDate,
+  claude: {
+    cash: claude.cash, value: +value.toFixed(2),
+    dayChange: +dayChange.toFixed(2),
+    retPct: +((value / claude.baselineValue - 1) * 100).toFixed(3),
+    baselineValue: claude.baselineValue, positions,
+  },
+  spy: { retPct: spyRet, price: spyQ?.price ?? null },
 };
 
 const histFile = join(root, 'data/history.json');
 const history = existsSync(histFile) ? JSON.parse(readFileSync(histFile, 'utf8')) : [];
-history.push({ ts: snapshot.asOf, zach: snapshot.zach.retPct, claude: snapshot.claude.retPct,
-  zachVal: snapshot.zach.value, claudeVal: snapshot.claude.value });
+history.push({ ts: snapshot.asOf, claude: snapshot.claude.retPct, spy: spyRet, claudeVal: snapshot.claude.value });
 writeFileSync(histFile, JSON.stringify(history, null, 1));
 writeFileSync(join(root, 'data/snapshot.json'), JSON.stringify(snapshot, null, 1));
 
-// Self-contained shareable copy: index.html with data inlined.
 const html = readFileSync(join(root, 'index.html'), 'utf8');
 const inline = `<script>window.__DATA__=${JSON.stringify({ snapshot, trades, history })}</script>`;
 writeFileSync(join(root, 'arena.html'), html.replace('<!--__DATA__-->', inline));
 
 const fails = symbols.filter(s => !quotes[s]);
 console.log(`snapshot ${snapshot.asOf}`);
-console.log(`  Zach   $${snapshot.zach.value.toLocaleString()} (${snapshot.zach.retPct >= 0 ? '+' : ''}${snapshot.zach.retPct}%)`);
-console.log(`  Claude $${snapshot.claude.value.toLocaleString()} (${snapshot.claude.retPct >= 0 ? '+' : ''}${snapshot.claude.retPct}%)`);
-if (fails.length) console.log(`  no quote (kept baseline): ${fails.join(', ')}`);
+console.log(`  Claude $${snapshot.claude.value.toLocaleString()} (${snapshot.claude.retPct >= 0 ? '+' : ''}${snapshot.claude.retPct}%) | SPY ${spyRet >= 0 ? '+' : ''}${spyRet}%`);
+if (fails.length) console.log(`  no quote (kept entry price): ${fails.join(', ')}`);

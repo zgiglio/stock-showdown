@@ -1,441 +1,61 @@
 {
- "asOf": "2026-06-12T16:35:51.484Z",
+ "asOf": "2026-06-12T19:50:57.797Z",
  "startDate": "2026-06-12",
- "zach": {
-  "owner": "Zach",
-  "cash": 30784.38,
-  "value": 129689.54,
-  "dayChange": 2973.4,
-  "retPct": 1.006,
-  "baselineValue": 128398.48,
+ "claude": {
+  "cash": 1745.07,
+  "value": 4985.35,
+  "dayChange": -14.65,
+  "retPct": -0.293,
+  "baselineValue": 5000,
   "positions": [
    {
-    "symbol": "MRVL",
-    "shares": 151,
-    "baselinePrice": 278.72,
-    "price": 284.78,
-    "value": 43001.78,
-    "stale": false
-   },
-   {
     "symbol": "INTC",
-    "shares": 201,
-    "baselinePrice": 121.9201,
-    "price": 124.78,
-    "value": 25080.78,
-    "stale": false
-   },
-   {
-    "symbol": "SOXQ",
-    "shares": 101,
-    "baselinePrice": 105.1,
-    "price": 105.73,
-    "value": 10678.73,
-    "stale": false
-   },
-   {
-    "symbol": "SGML",
-    "shares": 301,
-    "baselinePrice": 15.92,
-    "price": 15.835,
-    "value": 4766.34,
+    "shares": 8,
+    "entryPrice": 125,
+    "entryDate": "2026-06-12",
+    "stop": 116,
+    "target": 140,
+    "price": 124.95,
+    "value": 999.6,
     "stale": false
    },
    {
     "symbol": "POET",
-    "shares": 301,
-    "baselinePrice": 12.635,
-    "price": 12.47,
-    "value": 3753.47,
+    "shares": 72,
+    "entryPrice": 12.541,
+    "entryDate": "2026-06-12",
+    "stop": 11.5,
+    "target": 15,
+    "price": 12.435,
+    "value": 895.32,
     "stale": false
    },
    {
-    "symbol": "RXT",
-    "shares": 501,
-    "baselinePrice": 5.915,
-    "price": 5.719,
-    "value": 2865.22,
+    "symbol": "SOXL",
+    "shares": 3,
+    "entryPrice": 236.725,
+    "entryDate": "2026-06-12",
+    "stop": 215,
+    "target": 270,
+    "price": 235.92,
+    "value": 707.76,
     "stale": false
    },
    {
-    "symbol": "TSLA",
-    "shares": 6,
-    "baselinePrice": 397.48,
-    "price": 395.32,
-    "value": 2371.92,
-    "stale": false
-   },
-   {
-    "symbol": "ABAT",
-    "shares": 501,
-    "baselinePrice": 3.495,
-    "price": 3.405,
-    "value": 1705.9,
-    "stale": false
-   },
-   {
-    "symbol": "SUNE",
-    "shares": 501,
-    "baselinePrice": 2.4201,
-    "price": 2.454,
-    "value": 1229.45,
-    "stale": false
-   },
-   {
-    "symbol": "FRSX",
-    "shares": 501,
-    "baselinePrice": 1.58,
-    "price": 1.52,
-    "value": 761.52,
-    "stale": false
-   },
-   {
-    "symbol": "MP",
-    "shares": 10,
-    "baselinePrice": 57.74,
-    "price": 57.01,
-    "value": 570.1,
-    "stale": false
-   },
-   {
-    "symbol": "AAPL",
-    "shares": 1,
-    "baselinePrice": 293.02,
-    "price": 291.19,
-    "value": 291.19,
-    "stale": false
-   },
-   {
-    "symbol": "STI",
-    "shares": 11,
-    "baselinePrice": 25.76,
-    "price": 25.57,
-    "value": 281.27,
-    "stale": false
-   },
-   {
-    "symbol": "AMZN",
-    "shares": 1,
-    "baselinePrice": 236.44,
-    "price": 236.33,
-    "value": 236.33,
-    "stale": false
-   },
-   {
-    "symbol": "NVDA",
-    "shares": 1,
-    "baselinePrice": 205.4601,
-    "price": 204.96,
-    "value": 204.96,
-    "stale": false
-   },
-   {
-    "symbol": "CVX",
-    "shares": 1,
-    "baselinePrice": 187.29,
-    "price": 188.12,
-    "value": 188.12,
-    "stale": false
-   },
-   {
-    "symbol": "SOFI",
-    "shares": 10,
-    "baselinePrice": 16.48,
-    "price": 16.495,
-    "value": 164.95,
-    "stale": false
-   },
-   {
-    "symbol": "VST",
-    "shares": 1,
-    "baselinePrice": 148.9785,
-    "price": 148.425,
-    "value": 148.43,
-    "stale": false
-   },
-   {
-    "symbol": "WMT",
-    "shares": 1,
-    "baselinePrice": 120.06,
-    "price": 119.59,
-    "value": 119.59,
-    "stale": false
-   },
-   {
-    "symbol": "BUD",
-    "shares": 1,
-    "baselinePrice": 82.27,
-    "price": 82.3,
-    "value": 82.3,
-    "stale": false
-   },
-   {
-    "symbol": "KO",
-    "shares": 1,
-    "baselinePrice": 82.11,
-    "price": 82.03,
-    "value": 82.03,
-    "stale": false
-   },
-   {
-    "symbol": "BAC",
-    "shares": 1,
-    "baselinePrice": 55.665,
-    "price": 55.715,
-    "value": 55.72,
-    "stale": false
-   },
-   {
-    "symbol": "ALLY",
-    "shares": 1,
-    "baselinePrice": 43.935,
-    "price": 44.26,
-    "value": 44.26,
-    "stale": false
-   },
-   {
-    "symbol": "CART",
-    "shares": 1,
-    "baselinePrice": 40.67,
-    "price": 40.94,
-    "value": 40.94,
-    "stale": false
-   },
-   {
-    "symbol": "OUST",
-    "shares": 1,
-    "baselinePrice": 38.32,
-    "price": 40.55,
-    "value": 40.55,
-    "stale": false
-   },
-   {
-    "symbol": "SIRI",
-    "shares": 1,
-    "baselinePrice": 27.465,
-    "price": 27.1,
-    "value": 27.1,
-    "stale": false
-   },
-   {
-    "symbol": "DXST",
-    "shares": 10,
-    "baselinePrice": 2.96,
-    "price": 2.652,
-    "value": 26.52,
-    "stale": false
-   },
-   {
-    "symbol": "MOBX",
-    "shares": 10,
-    "baselinePrice": 2.095,
-    "price": 1.994,
-    "value": 19.94,
-    "stale": false
-   },
-   {
-    "symbol": "LASE",
-    "shares": 10,
-    "baselinePrice": 2.22,
-    "price": 1.88,
-    "value": 18.8,
-    "stale": false
-   },
-   {
-    "symbol": "ATRA",
-    "shares": 1,
-    "baselinePrice": 10.73,
-    "price": 10.49,
-    "value": 10.49,
-    "stale": false
-   },
-   {
-    "symbol": "EOSE",
-    "shares": 1,
-    "baselinePrice": 6.5051,
-    "price": 6.325,
-    "value": 6.33,
-    "stale": false
-   },
-   {
-    "symbol": "SOXS",
-    "shares": 1,
-    "baselinePrice": 4.7489,
-    "price": 4.637,
-    "value": 4.64,
-    "stale": false
-   },
-   {
-    "symbol": "AMPY",
-    "shares": 1,
-    "baselinePrice": 4.435,
-    "price": 4.415,
-    "value": 4.42,
-    "stale": false
-   },
-   {
-    "symbol": "XRX",
-    "shares": 1,
-    "baselinePrice": 3.4419,
-    "price": 3.415,
-    "value": 3.42,
-    "stale": false
-   },
-   {
-    "symbol": "CTMX",
-    "shares": 1,
-    "baselinePrice": 2.985,
-    "price": 3.005,
-    "value": 3,
-    "stale": false
-   },
-   {
-    "symbol": "ANY",
-    "shares": 1,
-    "baselinePrice": 3.03,
-    "price": 2.882,
-    "value": 2.88,
-    "stale": false
-   },
-   {
-    "symbol": "PLUG",
-    "shares": 1,
-    "baselinePrice": 2.82,
-    "price": 2.742,
-    "value": 2.74,
-    "stale": false
-   },
-   {
-    "symbol": "AIIO",
-    "shares": 1,
-    "baselinePrice": 2.86,
-    "price": 2.69,
-    "value": 2.69,
-    "stale": false
-   },
-   {
-    "symbol": "XRTX",
-    "shares": 1,
-    "baselinePrice": 2.215,
-    "price": 2.25,
-    "value": 2.25,
-    "stale": false
-   },
-   {
-    "symbol": "INM",
-    "shares": 1,
-    "baselinePrice": 1.55,
-    "price": 1.53,
-    "value": 1.53,
-    "stale": false
-   },
-   {
-    "symbol": "BATL",
-    "shares": 1,
-    "baselinePrice": 1.395,
-    "price": 1.365,
-    "value": 1.36,
-    "stale": false
-   },
-   {
-    "symbol": "GXAI",
-    "shares": 1,
-    "baselinePrice": 1.205,
-    "price": 1.21,
-    "value": 1.21,
-    "stale": false
-   },
-   {
-    "symbol": "BTAEF",
-    "shares": 1,
-    "baselinePrice": 0,
-    "note": "Beta Energy — delisted/worthless",
-    "price": 0,
-    "value": 0,
+    "symbol": "SGML",
+    "shares": 40,
+    "entryPrice": 16.045,
+    "entryDate": "2026-06-12",
+    "stop": 14.8,
+    "target": 18.5,
+    "price": 15.94,
+    "value": 637.6,
     "stale": false
    }
   ]
  },
- "claude": {
-  "owner": "Claude",
-  "cash": 38422.3,
-  "value": 128477.71,
-  "dayChange": 2259.07,
-  "retPct": 0.062,
-  "baselineValue": 128398.48,
-  "positions": [
-   {
-    "symbol": "MU",
-    "shares": 20,
-    "baselinePrice": 992.88,
-    "entryPrice": 992.88,
-    "entryDate": "2026-06-12",
-    "stop": 945,
-    "target": 1100,
-    "price": 993.555,
-    "value": 19871.1,
-    "stale": false
-   },
-   {
-    "symbol": "AMD",
-    "shares": 35,
-    "baselinePrice": 513.84,
-    "entryPrice": 513.84,
-    "entryDate": "2026-06-12",
-    "stop": 488,
-    "target": 565,
-    "price": 512.485,
-    "value": 17936.98,
-    "stale": false
-   },
-   {
-    "symbol": "INTC",
-    "shares": 120,
-    "baselinePrice": 122.86,
-    "entryPrice": 122.86,
-    "entryDate": "2026-06-12",
-    "stop": 113,
-    "target": 140,
-    "price": 124.78,
-    "value": 14973.6,
-    "stale": false
-   },
-   {
-    "symbol": "JPM",
-    "shares": 45,
-    "baselinePrice": 320.875,
-    "entryPrice": 320.875,
-    "entryDate": "2026-06-12",
-    "stop": 312,
-    "target": 340,
-    "price": 319.792,
-    "value": 14390.64,
-    "stale": false
-   },
-   {
-    "symbol": "MRVL",
-    "shares": 50,
-    "baselinePrice": 286.04,
-    "entryPrice": 286.04,
-    "entryDate": "2026-06-12",
-    "stop": 268,
-    "target": 320,
-    "price": 284.78,
-    "value": 14239,
-    "stale": false
-   },
-   {
-    "symbol": "QQQ",
-    "shares": 12,
-    "baselinePrice": 720.8,
-    "entryPrice": 720.8,
-    "entryDate": "2026-06-12",
-    "stop": 706,
-    "target": 750,
-    "price": 720.341,
-    "value": 8644.09,
-    "stale": false
-   }
-  ]
+ "spy": {
+  "retPct": 0.04,
+  "price": 741
  }
 }

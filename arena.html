@@ -4,71 +4,74 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="robots" content="noindex, nofollow">
-<title>Giglio vs. The Machine</title>
+<title>The $5,000 Machine ☺</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0e14; --card: #141926; --card2: #1a2133; --line: #232c42;
-    --text: #e8ecf6; --dim: #8b94ab; --green: #2dd47f; --red: #ff5d6c;
-    --zach: #5b9dff; --claude: #d9822b; --gold: #ffd24a;
+    --bokara: #282725; --sands: #EFEAE7; --glacier: #FFFFFF; --provencal: #D9D7FF;
+    --spice: #EC4221; --fluoro: #CBFF05; --highlands: #325444; --regent: #8896AB;
   }
   * { box-sizing: border-box; margin: 0; }
   body {
-    background: var(--bg); color: var(--text);
-    font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: max(12px, env(safe-area-inset-top)) 12px 40px;
+    background: var(--sands); color: var(--bokara);
+    font: 16px/1.5 "Space Grotesk", "Poppins", sans-serif;
+    padding: max(14px, env(safe-area-inset-top)) 14px 44px;
     max-width: 760px; margin: 0 auto;
   }
-  h1 { font-size: 22px; text-align: center; margin: 10px 0 2px; letter-spacing: .3px; }
-  .sub { text-align: center; color: var(--dim); font-size: 13px; margin-bottom: 14px; }
-  .tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 14px; }
+  h1 { font-size: 26px; font-weight: 700; text-align: center; margin: 8px 0 2px; }
+  h1 .smile { color: var(--spice); }
+  .sub { text-align: center; color: var(--regent); font-size: 13px; margin-bottom: 16px; }
+  .tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 16px; }
   .tab {
-    background: var(--card); color: var(--dim); border: 1px solid var(--line);
-    border-radius: 999px; padding: 7px 22px; font: inherit; font-size: 14px; font-weight: 600;
+    background: var(--glacier); color: var(--regent); border: 2px solid transparent;
+    border-radius: 999px; padding: 8px 24px; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
   }
-  .tab.active { color: var(--text); border-color: var(--gold); }
-  .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: stretch; }
-  .fighter {
-    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    padding: 14px 12px; text-align: center; position: relative;
+  .tab.active { color: var(--bokara); border-color: var(--bokara); background: var(--fluoro); }
+  .hero {
+    background: var(--bokara); color: var(--glacier); border-radius: 20px;
+    padding: 22px 18px; text-align: center;
   }
-  .fighter.leader { border-color: var(--gold); box-shadow: 0 0 18px rgba(255,210,74,.18); }
-  .crown { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); font-size: 18px; display: none; }
-  .fighter.leader .crown { display: block; }
-  .who { font-size: 13px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; }
-  .who.zach { color: var(--zach); } .who.claude { color: var(--claude); }
-  .ret { font-size: 30px; font-weight: 800; margin: 6px 0 0; font-variant-numeric: tabular-nums; }
-  .lbl { color: var(--dim); font-size: 10px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
-  .val { color: var(--dim); font-size: 13px; font-variant-numeric: tabular-nums; }
-  .day { font-size: 12px; margin-top: 4px; font-weight: 600; font-variant-numeric: tabular-nums; }
-  .mid { display: flex; align-items: center; font-weight: 800; color: var(--dim); font-size: 14px; }
-  .up { color: var(--green); } .down { color: var(--red); }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; margin-top: 14px; }
-  .card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); margin-bottom: 10px; }
-  canvas { width: 100%; height: 120px; }
+  .lbl { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--regent); }
+  .big { font-size: 44px; font-weight: 700; margin: 4px 0 10px; font-variant-numeric: tabular-nums; letter-spacing: -1px; }
+  .chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .chip {
+    border-radius: 999px; padding: 5px 14px; font-size: 13px; font-weight: 700;
+    background: #3a3835; color: var(--glacier); font-variant-numeric: tabular-nums;
+  }
+  .chip.fluoro { background: var(--fluoro); color: var(--bokara); }
+  .chip.prov { background: var(--provencal); color: var(--bokara); }
+  .up { color: var(--highlands); } .down { color: var(--spice); }
+  .hero .up { color: var(--fluoro); } .hero .down { color: #ff9d8a; }
+  .card { background: var(--glacier); border-radius: 20px; padding: 16px; margin-top: 14px; }
+  .card h2 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--regent); margin-bottom: 12px; }
+  canvas { width: 100%; height: 130px; }
+  .legend { display: flex; gap: 16px; font-size: 12px; font-weight: 500; color: var(--regent); margin-top: 8px; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; }
-  th { color: var(--dim); text-align: right; font-weight: 500; padding: 4px 6px; border-bottom: 1px solid var(--line); }
-  td { text-align: right; padding: 5px 6px; border-bottom: 1px solid rgba(35,44,66,.5); }
+  th { color: var(--regent); text-align: right; font-weight: 500; font-size: 12px; padding: 4px 6px; border-bottom: 2px solid var(--sands); }
+  td { text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--sands); }
   th:first-child, td:first-child { text-align: left; }
   .sym { font-weight: 700; }
-  .more { color: var(--dim); font-size: 12px; text-align: center; padding: 8px 0 0; cursor: pointer; user-select: none; }
-  .trade { border-left: 3px solid var(--claude); padding: 6px 10px; margin: 8px 0; background: var(--card2); border-radius: 0 10px 10px 0; }
-  .trade .h { font-size: 13px; font-weight: 700; }
-  .trade .r { font-size: 12px; color: var(--dim); margin-top: 2px; }
-  .buy { color: var(--green); } .sell { color: var(--red); }
-  .foot { text-align: center; color: var(--dim); font-size: 11px; margin-top: 18px; }
+  .small { color: var(--regent); font-size: 11px; }
+  .trade { background: var(--sands); padding: 10px 12px; margin: 10px 0; border-radius: 14px; }
+  .trade .h { font-size: 14px; font-weight: 700; }
+  .trade .r { font-size: 13px; color: #5d5a55; margin-top: 3px; }
+  .pill { display: inline-block; border-radius: 6px; padding: 1px 8px; font-size: 12px; font-weight: 700; }
+  .pill.buy { background: var(--fluoro); color: var(--bokara); }
+  .pill.sell { background: var(--spice); color: var(--glacier); }
+  .foot { text-align: center; color: var(--regent); font-size: 11px; margin-top: 20px; }
   .ranges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
   .rbtn {
-    background: var(--card2); color: var(--dim); border: 1px solid var(--line);
-    border-radius: 8px; padding: 5px 12px; font: inherit; font-size: 12px; font-weight: 600;
+    background: var(--sands); color: var(--regent); border: 2px solid transparent;
+    border-radius: 10px; padding: 6px 14px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
   }
-  .rbtn.active { color: var(--text); border-color: var(--gold); }
-  .custom { display: none; gap: 8px; margin-bottom: 12px; align-items: center; color: var(--dim); font-size: 12px; }
+  .rbtn.active { color: var(--bokara); border-color: var(--bokara); background: var(--provencal); }
+  .custom { display: none; gap: 8px; margin-bottom: 12px; align-items: center; color: var(--regent); font-size: 13px; }
   .custom.show { display: flex; }
   .custom input {
-    background: var(--card2); color: var(--text); border: 1px solid var(--line);
-    border-radius: 8px; padding: 5px 8px; font: inherit; font-size: 12px; color-scheme: dark;
+    background: var(--glacier); color: var(--bokara); border: 2px solid var(--sands);
+    border-radius: 10px; padding: 6px 9px; font: inherit; font-size: 13px;
   }
   #view-history { display: none; }
   body.history #view-today { display: none; }
@@ -76,7 +79,7 @@
 </style>
 </head>
 <body>
-<h1>🥊 Giglio vs. The Machine</h1>
+<h1>The $5,000 machine <span class="smile">☺</span></h1>
 <div class="sub" id="asof">loading…</div>
 
 <div class="tabs">
@@ -84,36 +87,30 @@
   <button class="tab" id="tab-history">History</button>
 </div>
 
-<div class="vs">
-  <div class="fighter" id="f-zach">
-    <div class="crown">👑</div>
-    <div class="who zach">Zach</div>
-    <div class="ret" id="ret-zach">–</div>
-    <div class="lbl">today vs yesterday’s close</div>
-    <div class="val" id="val-zach"></div>
-    <div class="day" id="day-zach"></div>
-  </div>
-  <div class="mid">VS</div>
-  <div class="fighter" id="f-claude">
-    <div class="crown">👑</div>
-    <div class="who claude">Claude</div>
-    <div class="ret" id="ret-claude">–</div>
-    <div class="lbl">today vs yesterday’s close</div>
-    <div class="val" id="val-claude"></div>
-    <div class="day" id="day-claude"></div>
+<div class="hero">
+  <div class="lbl">Claude's portfolio</div>
+  <div class="big" id="val">–</div>
+  <div class="chips">
+    <span class="chip" id="chip-day">today –</span>
+    <span class="chip" id="chip-total">since start –</span>
+    <span class="chip prov" id="chip-spy">S&amp;P –</span>
+    <span class="chip fluoro" id="chip-vs"></span>
   </div>
 </div>
 
 <div id="view-today">
-  <div class="card"><h2>The Race — % return since June 12, 2026</h2><canvas id="race" height="120"></canvas></div>
-  <div class="card"><h2 style="color:var(--claude)">Claude's Book</h2><div id="pos-claude"></div></div>
-  <div class="card"><h2 style="color:var(--zach)">Zach's Book</h2><div id="pos-zach"></div></div>
-  <div class="card"><h2>Claude's Trade Log</h2><div id="trades"></div></div>
+  <div class="card">
+    <h2>Claude vs. the market — % since June 12, 2026</h2>
+    <canvas id="race" height="130"></canvas>
+    <div class="legend"><span><span style="color:var(--spice)">●</span> Claude</span><span><span style="color:var(--regent)">●</span> S&amp;P 500</span></div>
+  </div>
+  <div class="card"><h2>Open positions</h2><div id="positions"></div></div>
+  <div class="card"><h2>Trade log — every move, with the why</h2><div id="trades"></div></div>
 </div>
 
 <div id="view-history">
   <div class="card">
-    <h2>Race score over time</h2>
+    <h2>Performance over time</h2>
     <div class="ranges" id="ranges">
       <button class="rbtn" data-days="1">Day</button>
       <button class="rbtn" data-days="7">Week</button>
@@ -124,18 +121,15 @@
     <div class="custom" id="custom">
       from <input type="date" id="d-from"> to <input type="date" id="d-to">
     </div>
-    <canvas id="histchart" height="120"></canvas>
-    <div style="display:flex;gap:14px;font-size:12px;color:var(--dim);margin-top:8px">
-      <span><span style="color:var(--zach)">●</span> Zach</span>
-      <span><span style="color:var(--claude)">●</span> Claude</span>
-    </div>
+    <canvas id="histchart" height="130"></canvas>
+    <div class="legend"><span><span style="color:var(--spice)">●</span> Claude</span><span><span style="color:var(--regent)">●</span> S&amp;P 500</span></div>
   </div>
   <div class="card"><h2>Day by day</h2><div id="daytable"></div></div>
 </div>
 
-<div class="foot">Paper-trading sandbox · real market prices · no real money moves<br>Both sides started at $128,398.48 (baseline snapshot 10:30 AM ET, Jun 12, 2026)</div>
+<div class="foot">Paper-trading sandbox · real market prices · no real money moves<br>Claude started with $5,000.00 on Jun 12, 2026 · beat the Giglios or bust ☺</div>
 
-<script>window.__DATA__={"snapshot":{"asOf":"2026-06-12T16:35:51.484Z","startDate":"2026-06-12","zach":{"owner":"Zach","cash":30784.38,"value":129689.54,"dayChange":2973.4,"retPct":1.006,"baselineValue":128398.48,"positions":[{"symbol":"MRVL","shares":151,"baselinePrice":278.72,"price":284.78,"value":43001.78,"stale":false},{"symbol":"INTC","shares":201,"baselinePrice":121.9201,"price":124.78,"value":25080.78,"stale":false},{"symbol":"SOXQ","shares":101,"baselinePrice":105.1,"price":105.73,"value":10678.73,"stale":false},{"symbol":"SGML","shares":301,"baselinePrice":15.92,"price":15.835,"value":4766.34,"stale":false},{"symbol":"POET","shares":301,"baselinePrice":12.635,"price":12.47,"value":3753.47,"stale":false},{"symbol":"RXT","shares":501,"baselinePrice":5.915,"price":5.719,"value":2865.22,"stale":false},{"symbol":"TSLA","shares":6,"baselinePrice":397.48,"price":395.32,"value":2371.92,"stale":false},{"symbol":"ABAT","shares":501,"baselinePrice":3.495,"price":3.405,"value":1705.9,"stale":false},{"symbol":"SUNE","shares":501,"baselinePrice":2.4201,"price":2.454,"value":1229.45,"stale":false},{"symbol":"FRSX","shares":501,"baselinePrice":1.58,"price":1.52,"value":761.52,"stale":false},{"symbol":"MP","shares":10,"baselinePrice":57.74,"price":57.01,"value":570.1,"stale":false},{"symbol":"AAPL","shares":1,"baselinePrice":293.02,"price":291.19,"value":291.19,"stale":false},{"symbol":"STI","shares":11,"baselinePrice":25.76,"price":25.57,"value":281.27,"stale":false},{"symbol":"AMZN","shares":1,"baselinePrice":236.44,"price":236.33,"value":236.33,"stale":false},{"symbol":"NVDA","shares":1,"baselinePrice":205.4601,"price":204.96,"value":204.96,"stale":false},{"symbol":"CVX","shares":1,"baselinePrice":187.29,"price":188.12,"value":188.12,"stale":false},{"symbol":"SOFI","shares":10,"baselinePrice":16.48,"price":16.495,"value":164.95,"stale":false},{"symbol":"VST","shares":1,"baselinePrice":148.9785,"price":148.425,"value":148.43,"stale":false},{"symbol":"WMT","shares":1,"baselinePrice":120.06,"price":119.59,"value":119.59,"stale":false},{"symbol":"BUD","shares":1,"baselinePrice":82.27,"price":82.3,"value":82.3,"stale":false},{"symbol":"KO","shares":1,"baselinePrice":82.11,"price":82.03,"value":82.03,"stale":false},{"symbol":"BAC","shares":1,"baselinePrice":55.665,"price":55.715,"value":55.72,"stale":false},{"symbol":"ALLY","shares":1,"baselinePrice":43.935,"price":44.26,"value":44.26,"stale":false},{"symbol":"CART","shares":1,"baselinePrice":40.67,"price":40.94,"value":40.94,"stale":false},{"symbol":"OUST","shares":1,"baselinePrice":38.32,"price":40.55,"value":40.55,"stale":false},{"symbol":"SIRI","shares":1,"baselinePrice":27.465,"price":27.1,"value":27.1,"stale":false},{"symbol":"DXST","shares":10,"baselinePrice":2.96,"price":2.652,"value":26.52,"stale":false},{"symbol":"MOBX","shares":10,"baselinePrice":2.095,"price":1.994,"value":19.94,"stale":false},{"symbol":"LASE","shares":10,"baselinePrice":2.22,"price":1.88,"value":18.8,"stale":false},{"symbol":"ATRA","shares":1,"baselinePrice":10.73,"price":10.49,"value":10.49,"stale":false},{"symbol":"EOSE","shares":1,"baselinePrice":6.5051,"price":6.325,"value":6.33,"stale":false},{"symbol":"SOXS","shares":1,"baselinePrice":4.7489,"price":4.637,"value":4.64,"stale":false},{"symbol":"AMPY","shares":1,"baselinePrice":4.435,"price":4.415,"value":4.42,"stale":false},{"symbol":"XRX","shares":1,"baselinePrice":3.4419,"price":3.415,"value":3.42,"stale":false},{"symbol":"CTMX","shares":1,"baselinePrice":2.985,"price":3.005,"value":3,"stale":false},{"symbol":"ANY","shares":1,"baselinePrice":3.03,"price":2.882,"value":2.88,"stale":false},{"symbol":"PLUG","shares":1,"baselinePrice":2.82,"price":2.742,"value":2.74,"stale":false},{"symbol":"AIIO","shares":1,"baselinePrice":2.86,"price":2.69,"value":2.69,"stale":false},{"symbol":"XRTX","shares":1,"baselinePrice":2.215,"price":2.25,"value":2.25,"stale":false},{"symbol":"INM","shares":1,"baselinePrice":1.55,"price":1.53,"value":1.53,"stale":false},{"symbol":"BATL","shares":1,"baselinePrice":1.395,"price":1.365,"value":1.36,"stale":false},{"symbol":"GXAI","shares":1,"baselinePrice":1.205,"price":1.21,"value":1.21,"stale":false},{"symbol":"BTAEF","shares":1,"baselinePrice":0,"note":"Beta Energy — delisted/worthless","price":0,"value":0,"stale":false}]},"claude":{"owner":"Claude","cash":38422.3,"value":128477.71,"dayChange":2259.07,"retPct":0.062,"baselineValue":128398.48,"positions":[{"symbol":"MU","shares":20,"baselinePrice":992.88,"entryPrice":992.88,"entryDate":"2026-06-12","stop":945,"target":1100,"price":993.555,"value":19871.1,"stale":false},{"symbol":"AMD","shares":35,"baselinePrice":513.84,"entryPrice":513.84,"entryDate":"2026-06-12","stop":488,"target":565,"price":512.485,"value":17936.98,"stale":false},{"symbol":"INTC","shares":120,"baselinePrice":122.86,"entryPrice":122.86,"entryDate":"2026-06-12","stop":113,"target":140,"price":124.78,"value":14973.6,"stale":false},{"symbol":"JPM","shares":45,"baselinePrice":320.875,"entryPrice":320.875,"entryDate":"2026-06-12","stop":312,"target":340,"price":319.792,"value":14390.64,"stale":false},{"symbol":"MRVL","shares":50,"baselinePrice":286.04,"entryPrice":286.04,"entryDate":"2026-06-12","stop":268,"target":320,"price":284.78,"value":14239,"stale":false},{"symbol":"QQQ","shares":12,"baselinePrice":720.8,"entryPrice":720.8,"entryDate":"2026-06-12","stop":706,"target":750,"price":720.341,"value":8644.09,"stale":false}]}},"trades":{"trades":[{"ts":"2026-06-12T14:35:00Z","trader":"Claude","side":"BUY","symbol":"MU","shares":20,"price":992.88,"value":19857.6,"reason":"Memory-chip momentum leader of the semi rebound (+15% over 5 sessions); memory pricing crisis narrative breaking, highest relative strength in the group."},{"ts":"2026-06-12T14:35:00Z","trader":"Claude","side":"BUY","symbol":"AMD","shares":35,"price":513.84,"value":17984.4,"reason":"V-shaped recovery from the June 5 AI-chip selloff (-10.9% day, now reclaimed); buying continuation of the technical rebound."},{"ts":"2026-06-12T14:35:00Z","trader":"Claude","side":"BUY","symbol":"INTC","shares":120,"price":122.86,"value":14743.2,"reason":"Strongest 5-day mover among large-cap semis (+24% off the $99 panic low); momentum + short-squeeze fuel."},{"ts":"2026-06-12T14:35:00Z","trader":"Claude","side":"BUY","symbol":"MRVL","shares":50,"price":286.04,"value":14302,"reason":"Plunged 17% in the selloff, +8.6% rebounding; AI data-center story intact, selloff judged technical not fundamental."},{"ts":"2026-06-12T14:35:00Z","trader":"Claude","side":"BUY","symbol":"JPM","shares":45,"price":320.875,"value":14439.38,"reason":"Cyclical/financials rotation + lead underwriter halo on the largest IPO in history (SpaceX, ~$75B raise) pricing today."},{"ts":"2026-06-12T14:35:00Z","trader":"Claude","side":"BUY","symbol":"QQQ","shares":12,"price":720.8,"value":8649.6,"reason":"Index momentum core; market risk-on with US-Iran deal hopes, futures +0.5%. Liquid ballast I can exit instantly."}]},"history":[{"ts":"2026-06-12T15:48:07.895Z","zach":0.375,"claude":-0.339},{"ts":"2026-06-12T15:58:03.191Z","zach":-0.104,"claude":-0.562},{"ts":"2026-06-12T16:28:31.547Z","zach":0.718,"claude":-0.15},{"ts":"2026-06-12T16:35:51.484Z","zach":1.006,"claude":0.062,"zachVal":129689.54,"claudeVal":128477.71}]}</script>
+<script>window.__DATA__={"snapshot":{"asOf":"2026-06-12T19:50:57.797Z","startDate":"2026-06-12","claude":{"cash":1745.07,"value":4985.35,"dayChange":-14.65,"retPct":-0.293,"baselineValue":5000,"positions":[{"symbol":"INTC","shares":8,"entryPrice":125,"entryDate":"2026-06-12","stop":116,"target":140,"price":124.95,"value":999.6,"stale":false},{"symbol":"POET","shares":72,"entryPrice":12.541,"entryDate":"2026-06-12","stop":11.5,"target":15,"price":12.435,"value":895.32,"stale":false},{"symbol":"SOXL","shares":3,"entryPrice":236.725,"entryDate":"2026-06-12","stop":215,"target":270,"price":235.92,"value":707.76,"stale":false},{"symbol":"SGML","shares":40,"entryPrice":16.045,"entryDate":"2026-06-12","stop":14.8,"target":18.5,"price":15.94,"value":637.6,"stale":false}]},"spy":{"retPct":0.04,"price":741}},"trades":{"trades":[{"ts":"2026-06-12T17:05:00Z","trader":"Claude","side":"BUY","symbol":"INTC","shares":8,"price":125,"value":1000,"reason":"Momentum leader of the semi rebound — +6.9% today, +24% off the June 5 panic low at $99. Full 20% position; stop $116, target $140."},{"ts":"2026-06-12T17:05:00Z","trader":"Claude","side":"BUY","symbol":"POET","shares":72,"price":12.541,"value":902.95,"reason":"Borrowed from the Giglio playbook — optical AI interconnects, +11.5% today on heavy momentum. Riding the family's best horse; stop $11.50, target $15."},{"ts":"2026-06-12T17:05:00Z","trader":"Claude","side":"BUY","symbol":"SOXL","shares":3,"price":236.725,"value":710.18,"reason":"3x-levered semis — the day-trader power tool for a small account in a sector rebound. +5.7% today. Small size, wide stop $215, target $270."},{"ts":"2026-06-12T17:05:00Z","trader":"Claude","side":"BUY","symbol":"SGML","shares":40,"price":16.045,"value":641.8,"reason":"Also from the Giglio book — lithium with +8.9% today and relative strength all week. Stop $14.80, target $18.50."}]},"history":[{"ts":"2026-06-12T19:50:57.797Z","claude":-0.293,"spy":0.04,"claudeVal":4985.35}]}</script>
 <script>
 const $ = id => document.getElementById(id);
 const fmt$ = n => '$' + n.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
@@ -150,63 +144,64 @@ async function load() {
   return { snapshot, trades, history };
 }
 
-function fighter(side, book) {
-  const dayBase = book.value - book.dayChange;
-  const dayPct = dayBase ? book.dayChange / dayBase * 100 : 0;
-  $('ret-' + side).textContent = pct(dayPct);
-  $('ret-' + side).className = 'ret ' + (dayPct >= 0 ? 'up' : 'down');
-  $('val-' + side).textContent = fmt$(book.value) + ' · ' +
-    (book.dayChange >= 0 ? '+$' : '−$') + fmt$(Math.abs(book.dayChange)).slice(1) + ' today';
-  $('day-' + side).textContent = 'race score ' + pct(book.retPct);
-  $('day-' + side).className = 'day ' + (book.retPct >= 0 ? 'up' : 'down');
+function hero(snap) {
+  const b = snap.claude;
+  $('val').textContent = fmt$(b.value);
+  const dayBase = b.value - b.dayChange;
+  const dayPct = dayBase ? b.dayChange / dayBase * 100 : 0;
+  $('chip-day').innerHTML = 'today <span class="' + (dayPct >= 0 ? 'up' : 'down') + '">' + pct(dayPct) + '</span>';
+  $('chip-total').innerHTML = 'since start <span class="' + (b.retPct >= 0 ? 'up' : 'down') + '">' + pct(b.retPct) + '</span>';
+  if (snap.spy.retPct != null) {
+    $('chip-spy').textContent = 'S&P ' + pct(snap.spy.retPct);
+    const beating = b.retPct >= snap.spy.retPct;
+    $('chip-vs').textContent = beating ? '☺ beating the market' : 'trailing the market';
+    $('chip-vs').className = 'chip ' + (beating ? 'fluoro' : '');
+  } else $('chip-spy').style.display = $('chip-vs').style.display = 'none';
 }
 
-function positions(el, book, topN) {
+function positions(book) {
   const rows = book.positions.map(p => {
-    const gl = p.entryPrice ?? p.baselinePrice;
-    const glp = gl ? (p.price / gl - 1) * 100 : 0;
-    return `<tr><td class="sym">${p.symbol}${p.stale ? ' ·' : ''}</td><td>${p.shares}</td>
-      <td>${fmt$(p.price)}</td><td>${fmt$(p.value)}</td>
-      <td class="${glp >= 0 ? 'up' : 'down'}">${pct(glp)}</td></tr>`;
-  });
-  const head = `<tr><th>Sym</th><th>Qty</th><th>Price</th><th>Value</th><th>G/L</th></tr>`;
-  const cashRow = `<tr><td class="sym">CASH</td><td></td><td></td><td>${fmt$(book.cash)}</td><td></td></tr>`;
-  const render = n => { el.innerHTML = `<table>${head}${rows.slice(0, n).join('')}${cashRow}</table>` +
-    (rows.length > n ? `<div class="more">▾ show all ${rows.length} positions</div>` : '');
-    el.querySelector('.more')?.addEventListener('click', () => render(rows.length)); };
-  render(topN);
+    const glp = (p.price / p.entryPrice - 1) * 100;
+    return `<tr><td><span class="sym">${p.symbol}</span><br><span class="small">in @ ${fmt$(p.entryPrice)}</span></td>
+      <td>${p.shares}</td><td>${fmt$(p.price)}</td><td>${fmt$(p.value)}</td>
+      <td><span class="small">stop ${fmt$(p.stop)}<br>aim ${fmt$(p.target)}</span></td>
+      <td class="${glp >= 0 ? 'up' : 'down'}"><b>${pct(glp)}</b></td></tr>`;
+  }).join('');
+  $('positions').innerHTML = `<table>
+    <tr><th>Stock</th><th>Qty</th><th>Price</th><th>Value</th><th>Plan</th><th>G/L</th></tr>${rows}
+    <tr><td class="sym">CASH</td><td></td><td></td><td>${fmt$(book.cash)}</td><td></td><td></td></tr></table>`;
 }
 
-function chart(canvas, points) {
+function chart(canvas, points, keys) {
   const c = canvas, dpr = devicePixelRatio || 1;
-  const W = c.clientWidth, H = 120; c.width = W * dpr; c.height = H * dpr;
+  const W = c.clientWidth, H = 130; c.width = W * dpr; c.height = H * dpr;
   const x = c.getContext('2d'); x.scale(dpr, dpr); x.clearRect(0, 0, W, H);
-  if (!points.length) {
-    x.fillStyle = '#8b94ab'; x.font = '13px sans-serif'; x.textAlign = 'center';
+  const pts = points.filter(h => keys.every(([k]) => h[k] != null));
+  if (!pts.length) {
+    x.fillStyle = '#8896AB'; x.font = '13px "Space Grotesk"'; x.textAlign = 'center';
     x.fillText('no data in this range', W / 2, H / 2); return;
   }
-  const all = points.flatMap(h => [h.zach, h.claude]);
+  const all = pts.flatMap(h => keys.map(([k]) => h[k]));
   const min = Math.min(...all, 0) - .3, max = Math.max(...all, 0) + .3;
-  const X = i => 8 + i / Math.max(points.length - 1, 1) * (W - 16);
+  const X = i => 8 + i / Math.max(pts.length - 1, 1) * (W - 16);
   const Y = v => H - 10 - (v - min) / (max - min) * (H - 20);
-  x.strokeStyle = '#232c42'; x.beginPath(); x.moveTo(8, Y(0)); x.lineTo(W - 8, Y(0)); x.stroke();
-  for (const [key, color] of [['zach', '#5b9dff'], ['claude', '#d9822b']]) {
-    x.strokeStyle = color; x.lineWidth = 2.5; x.beginPath();
-    points.forEach((h, i) => i ? x.lineTo(X(i), Y(h[key])) : x.moveTo(X(i), Y(h[key])));
+  x.strokeStyle = '#EFEAE7'; x.lineWidth = 2; x.beginPath(); x.moveTo(8, Y(0)); x.lineTo(W - 8, Y(0)); x.stroke();
+  for (const [key, color] of keys) {
+    x.strokeStyle = color; x.lineWidth = 3; x.lineJoin = 'round'; x.beginPath();
+    pts.forEach((h, i) => i ? x.lineTo(X(i), Y(h[key])) : x.moveTo(X(i), Y(h[key])));
     x.stroke();
-    const last = points[points.length - 1];
-    x.fillStyle = color; x.beginPath(); x.arc(X(points.length - 1), Y(last[key]), 4, 0, 7); x.fill();
+    x.fillStyle = color; x.beginPath(); x.arc(X(pts.length - 1), Y(pts[pts.length - 1][key]), 4.5, 0, 7); x.fill();
   }
 }
+const KEYS = [['spy', '#8896AB'], ['claude', '#EC4221']];
 
 function tradeLog(trades) {
   $('trades').innerHTML = trades.trades.slice().reverse().map(t => `
-    <div class="trade"><div class="h"><span class="${t.side === 'BUY' ? 'buy' : 'sell'}">${t.side}</span>
-      ${t.shares} ${t.symbol} @ ${fmt$(t.price)} <span style="color:var(--dim)">· ${t.ts.slice(0, 10)}</span></div>
+    <div class="trade"><div class="h"><span class="pill ${t.side === 'BUY' ? 'buy' : 'sell'}">${t.side}</span>
+      ${t.shares} ${t.symbol} @ ${fmt$(t.price)} <span class="small">· ${t.ts.slice(0, 10)}</span></div>
       <div class="r">${t.reason}</div></div>`).join('');
 }
 
-// ---- History tab ----
 function filterHist(days, from, to) {
   if (days === -1 && from && to)
     return HIST.filter(h => h.ts.slice(0, 10) >= from && h.ts.slice(0, 10) <= to);
@@ -217,29 +212,27 @@ function filterHist(days, from, to) {
 
 function dayTable(points) {
   const byDay = new Map();
-  points.forEach(h => byDay.set(h.ts.slice(0, 10), h)); // last point per day wins
+  points.forEach(h => byDay.set(h.ts.slice(0, 10), h));
   const days = [...byDay.entries()];
   const rows = days.map(([d, h], i) => {
-    const prev = i ? days[i - 1][1] : { zach: 0, claude: 0 };
-    const zd = h.zach - prev.zach, cd = h.claude - prev.claude;
-    const lead = h.zach >= h.claude ? '🟦 Zach' : '🟧 Claude';
+    const prev = i ? days[i - 1][1] : { claude: 0 };
+    const cd = h.claude - prev.claude;
+    const beat = h.spy != null ? (h.claude >= h.spy ? '☺' : '–') : '';
     return `<tr><td>${d.slice(5)}</td>
-      <td class="${zd >= 0 ? 'up' : 'down'}">${pct(zd)}</td>
       <td class="${cd >= 0 ? 'up' : 'down'}">${pct(cd)}</td>
-      <td class="${h.zach >= 0 ? 'up' : 'down'}">${pct(h.zach)}</td>
-      <td class="${h.claude >= 0 ? 'up' : 'down'}">${pct(h.claude)}</td>
-      <td>${lead}</td></tr>`;
+      <td class="${h.claude >= 0 ? 'up' : 'down'}"><b>${pct(h.claude)}</b></td>
+      <td>${h.claudeVal ? fmt$(h.claudeVal) : ''}</td>
+      <td>${h.spy != null ? pct(h.spy) : ''}</td><td>${beat}</td></tr>`;
   }).reverse();
   $('daytable').innerHTML = `<table>
-    <tr><th>Date</th><th>Zach Δ</th><th>Claude Δ</th><th>Zach total</th><th>Claude total</th><th>Leader</th></tr>
+    <tr><th>Date</th><th>Day</th><th>Total</th><th>Value</th><th>S&amp;P</th><th>Beat?</th></tr>
     ${rows.join('')}</table>`;
 }
 
 function renderHistory() {
-  const active = document.querySelector('.rbtn.active');
-  const days = +active.dataset.days;
+  const days = +document.querySelector('.rbtn.active').dataset.days;
   const pts = filterHist(days, $('d-from').value, $('d-to').value);
-  chart($('histchart'), pts);
+  chart($('histchart'), pts, KEYS);
   dayTable(pts);
 }
 
@@ -264,13 +257,11 @@ $('tab-history').addEventListener('click', () => {
 
 load().then(({ snapshot, trades, history }) => {
   HIST = history;
-  $('asof').textContent = 'as of ' + new Date(snapshot.asOf).toLocaleString();
-  fighter('zach', snapshot.zach); fighter('claude', snapshot.claude);
-  const lead = snapshot.zach.retPct >= snapshot.claude.retPct ? 'zach' : 'claude';
-  $('f-' + lead).classList.add('leader');
-  positions($('pos-claude'), snapshot.claude, 10);
-  positions($('pos-zach'), snapshot.zach, 10);
-  chart($('race'), history); tradeLog(trades);
+  $('asof').textContent = 'Claude’s day-trading challenge · as of ' + new Date(snapshot.asOf).toLocaleString();
+  hero(snapshot);
+  positions(snapshot.claude);
+  chart($('race'), history, KEYS);
+  tradeLog(trades);
 }).catch(e => { $('asof').textContent = 'failed to load data: ' + e.message; });
 if (!window.__DATA__) setTimeout(() => location.reload(), 5 * 60 * 1000);
 </script>
