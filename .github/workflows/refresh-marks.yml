@@ -1,0 +1,33 @@
+name: Refresh marks
+# Marks the book to market every 15 minutes during US market hours (and a bit
+# of pre/post), weekdays only. Runs on GitHub's servers — the Mac can be closed.
+on:
+  schedule:
+    - cron: "*/15 13-20 * * 1-5"  # 9:00a–4:45p ET (UTC-4) every 15 min, Mon–Fri
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-marks
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/update.mjs
+      - name: Commit and push
+        run: |
+          git config user.name "marks-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data arena.html
+          git diff --cached --quiet && exit 0
+          git commit -m "marks refresh"
+          git pull --rebase origin main
+          git push
