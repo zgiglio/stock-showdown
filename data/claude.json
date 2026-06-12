@@ -1,0 +1,15 @@
+{
+  "owner": "Claude",
+  "broker": "Paper (sandbox)",
+  "baselineDate": "2026-06-12",
+  "baselineValue": 128398.48,
+  "cash": 38422.30,
+  "positions": [
+    { "symbol": "MU",   "shares": 20,  "baselinePrice": 992.88,  "entryPrice": 992.88,  "entryDate": "2026-06-12", "stop": 945.00, "target": 1100.00 },
+    { "symbol": "AMD",  "shares": 35,  "baselinePrice": 513.84,  "entryPrice": 513.84,  "entryDate": "2026-06-12", "stop": 488.00, "target": 565.00 },
+    { "symbol": "INTC", "shares": 120, "baselinePrice": 122.86,  "entryPrice": 122.86,  "entryDate": "2026-06-12", "stop": 113.00, "target": 140.00 },
+    { "symbol": "MRVL", "shares": 50,  "baselinePrice": 286.04,  "entryPrice": 286.04,  "entryDate": "2026-06-12", "stop": 268.00, "target": 320.00 },
+    { "symbol": "JPM",  "shares": 45,  "baselinePrice": 320.875, "entryPrice": 320.875, "entryDate": "2026-06-12", "stop": 312.00, "target": 340.00 },
+    { "symbol": "QQQ",  "shares": 12,  "baselinePrice": 720.80,  "entryPrice": 720.80,  "entryDate": "2026-06-12", "stop": 706.00, "target": 750.00 }
+  ]
+}

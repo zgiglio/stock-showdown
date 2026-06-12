@@ -1,0 +1,441 @@
+{
+ "asOf": "2026-06-12T15:58:03.191Z",
+ "startDate": "2026-06-12",
+ "zach": {
+  "owner": "Zach",
+  "cash": 30784.38,
+  "value": 128264.88,
+  "dayChange": 1548.74,
+  "retPct": -0.104,
+  "baselineValue": 128398.48,
+  "positions": [
+   {
+    "symbol": "MRVL",
+    "shares": 151,
+    "baselinePrice": 278.72,
+    "price": 281.565,
+    "value": 42516.32,
+    "stale": false
+   },
+   {
+    "symbol": "INTC",
+    "shares": 201,
+    "baselinePrice": 121.9201,
+    "price": 121.8,
+    "value": 24481.8,
+    "stale": false
+   },
+   {
+    "symbol": "SOXQ",
+    "shares": 101,
+    "baselinePrice": 105.1,
+    "price": 105.055,
+    "value": 10610.56,
+    "stale": false
+   },
+   {
+    "symbol": "SGML",
+    "shares": 301,
+    "baselinePrice": 15.92,
+    "price": 15.57,
+    "value": 4686.57,
+    "stale": false
+   },
+   {
+    "symbol": "POET",
+    "shares": 301,
+    "baselinePrice": 12.635,
+    "price": 12.125,
+    "value": 3649.63,
+    "stale": false
+   },
+   {
+    "symbol": "RXT",
+    "shares": 501,
+    "baselinePrice": 5.915,
+    "price": 5.63,
+    "value": 2820.63,
+    "stale": false
+   },
+   {
+    "symbol": "TSLA",
+    "shares": 6,
+    "baselinePrice": 397.48,
+    "price": 389.9,
+    "value": 2339.4,
+    "stale": false
+   },
+   {
+    "symbol": "ABAT",
+    "shares": 501,
+    "baselinePrice": 3.495,
+    "price": 3.415,
+    "value": 1710.91,
+    "stale": false
+   },
+   {
+    "symbol": "SUNE",
+    "shares": 501,
+    "baselinePrice": 2.4201,
+    "price": 2.451,
+    "value": 1227.95,
+    "stale": false
+   },
+   {
+    "symbol": "FRSX",
+    "shares": 501,
+    "baselinePrice": 1.58,
+    "price": 1.528,
+    "value": 765.53,
+    "stale": false
+   },
+   {
+    "symbol": "MP",
+    "shares": 10,
+    "baselinePrice": 57.74,
+    "price": 56.27,
+    "value": 562.7,
+    "stale": false
+   },
+   {
+    "symbol": "AAPL",
+    "shares": 1,
+    "baselinePrice": 293.02,
+    "price": 291.685,
+    "value": 291.69,
+    "stale": false
+   },
+   {
+    "symbol": "STI",
+    "shares": 11,
+    "baselinePrice": 25.76,
+    "price": 24.72,
+    "value": 271.92,
+    "stale": false
+   },
+   {
+    "symbol": "AMZN",
+    "shares": 1,
+    "baselinePrice": 236.44,
+    "price": 236.4,
+    "value": 236.4,
+    "stale": false
+   },
+   {
+    "symbol": "NVDA",
+    "shares": 1,
+    "baselinePrice": 205.4601,
+    "price": 204.813,
+    "value": 204.81,
+    "stale": false
+   },
+   {
+    "symbol": "CVX",
+    "shares": 1,
+    "baselinePrice": 187.29,
+    "price": 187.99,
+    "value": 187.99,
+    "stale": false
+   },
+   {
+    "symbol": "SOFI",
+    "shares": 10,
+    "baselinePrice": 16.48,
+    "price": 16.4,
+    "value": 164,
+    "stale": false
+   },
+   {
+    "symbol": "VST",
+    "shares": 1,
+    "baselinePrice": 148.9785,
+    "price": 147.405,
+    "value": 147.41,
+    "stale": false
+   },
+   {
+    "symbol": "WMT",
+    "shares": 1,
+    "baselinePrice": 120.06,
+    "price": 120.001,
+    "value": 120,
+    "stale": false
+   },
+   {
+    "symbol": "BUD",
+    "shares": 1,
+    "baselinePrice": 82.27,
+    "price": 82.485,
+    "value": 82.48,
+    "stale": false
+   },
+   {
+    "symbol": "KO",
+    "shares": 1,
+    "baselinePrice": 82.11,
+    "price": 82.23,
+    "value": 82.23,
+    "stale": false
+   },
+   {
+    "symbol": "BAC",
+    "shares": 1,
+    "baselinePrice": 55.665,
+    "price": 55.82,
+    "value": 55.82,
+    "stale": false
+   },
+   {
+    "symbol": "ALLY",
+    "shares": 1,
+    "baselinePrice": 43.935,
+    "price": 44.319,
+    "value": 44.32,
+    "stale": false
+   },
+   {
+    "symbol": "CART",
+    "shares": 1,
+    "baselinePrice": 40.67,
+    "price": 40.805,
+    "value": 40.8,
+    "stale": false
+   },
+   {
+    "symbol": "OUST",
+    "shares": 1,
+    "baselinePrice": 38.32,
+    "price": 38.51,
+    "value": 38.51,
+    "stale": false
+   },
+   {
+    "symbol": "SIRI",
+    "shares": 1,
+    "baselinePrice": 27.465,
+    "price": 27.105,
+    "value": 27.11,
+    "stale": false
+   },
+   {
+    "symbol": "DXST",
+    "shares": 10,
+    "baselinePrice": 2.96,
+    "price": 2.68,
+    "value": 26.8,
+    "stale": false
+   },
+   {
+    "symbol": "MOBX",
+    "shares": 10,
+    "baselinePrice": 2.095,
+    "price": 1.99,
+    "value": 19.9,
+    "stale": false
+   },
+   {
+    "symbol": "LASE",
+    "shares": 10,
+    "baselinePrice": 2.22,
+    "price": 1.905,
+    "value": 19.05,
+    "stale": false
+   },
+   {
+    "symbol": "ATRA",
+    "shares": 1,
+    "baselinePrice": 10.73,
+    "price": 10.85,
+    "value": 10.85,
+    "stale": false
+   },
+   {
+    "symbol": "EOSE",
+    "shares": 1,
+    "baselinePrice": 6.5051,
+    "price": 6.19,
+    "value": 6.19,
+    "stale": false
+   },
+   {
+    "symbol": "SOXS",
+    "shares": 1,
+    "baselinePrice": 4.7489,
+    "price": 4.77,
+    "value": 4.77,
+    "stale": false
+   },
+   {
+    "symbol": "AMPY",
+    "shares": 1,
+    "baselinePrice": 4.435,
+    "price": 4.436,
+    "value": 4.44,
+    "stale": false
+   },
+   {
+    "symbol": "XRX",
+    "shares": 1,
+    "baselinePrice": 3.4419,
+    "price": 3.4,
+    "value": 3.4,
+    "stale": false
+   },
+   {
+    "symbol": "CTMX",
+    "shares": 1,
+    "baselinePrice": 2.985,
+    "price": 3.015,
+    "value": 3.02,
+    "stale": false
+   },
+   {
+    "symbol": "ANY",
+    "shares": 1,
+    "baselinePrice": 3.03,
+    "price": 2.88,
+    "value": 2.88,
+    "stale": false
+   },
+   {
+    "symbol": "PLUG",
+    "shares": 1,
+    "baselinePrice": 2.82,
+    "price": 2.715,
+    "value": 2.71,
+    "stale": false
+   },
+   {
+    "symbol": "AIIO",
+    "shares": 1,
+    "baselinePrice": 2.86,
+    "price": 2.697,
+    "value": 2.7,
+    "stale": false
+   },
+   {
+    "symbol": "XRTX",
+    "shares": 1,
+    "baselinePrice": 2.215,
+    "price": 2.25,
+    "value": 2.25,
+    "stale": false
+   },
+   {
+    "symbol": "INM",
+    "shares": 1,
+    "baselinePrice": 1.55,
+    "price": 1.515,
+    "value": 1.51,
+    "stale": false
+   },
+   {
+    "symbol": "BATL",
+    "shares": 1,
+    "baselinePrice": 1.395,
+    "price": 1.36,
+    "value": 1.36,
+    "stale": false
+   },
+   {
+    "symbol": "GXAI",
+    "shares": 1,
+    "baselinePrice": 1.205,
+    "price": 1.19,
+    "value": 1.19,
+    "stale": false
+   },
+   {
+    "symbol": "BTAEF",
+    "shares": 1,
+    "baselinePrice": 0,
+    "note": "Beta Energy — delisted/worthless",
+    "price": 0,
+    "value": 0,
+    "stale": false
+   }
+  ]
+ },
+ "claude": {
+  "owner": "Claude",
+  "cash": 38422.3,
+  "value": 127676.68,
+  "dayChange": 1458.04,
+  "retPct": -0.562,
+  "baselineValue": 128398.48,
+  "positions": [
+   {
+    "symbol": "MU",
+    "shares": 20,
+    "baselinePrice": 992.88,
+    "entryPrice": 992.88,
+    "entryDate": "2026-06-12",
+    "stop": 945,
+    "target": 1100,
+    "price": 986.49,
+    "value": 19729.8,
+    "stale": false
+   },
+   {
+    "symbol": "AMD",
+    "shares": 35,
+    "baselinePrice": 513.84,
+    "entryPrice": 513.84,
+    "entryDate": "2026-06-12",
+    "stop": 488,
+    "target": 565,
+    "price": 508.68,
+    "value": 17803.8,
+    "stale": false
+   },
+   {
+    "symbol": "INTC",
+    "shares": 120,
+    "baselinePrice": 122.86,
+    "entryPrice": 122.86,
+    "entryDate": "2026-06-12",
+    "stop": 113,
+    "target": 140,
+    "price": 121.8,
+    "value": 14616,
+    "stale": false
+   },
+   {
+    "symbol": "JPM",
+    "shares": 45,
+    "baselinePrice": 320.875,
+    "entryPrice": 320.875,
+    "entryDate": "2026-06-12",
+    "stop": 312,
+    "target": 340,
+    "price": 320.25,
+    "value": 14411.25,
+    "stale": false
+   },
+   {
+    "symbol": "MRVL",
+    "shares": 50,
+    "baselinePrice": 286.04,
+    "entryPrice": 286.04,
+    "entryDate": "2026-06-12",
+    "stop": 268,
+    "target": 320,
+    "price": 281.565,
+    "value": 14078.25,
+    "stale": false
+   },
+   {
+    "symbol": "QQQ",
+    "shares": 12,
+    "baselinePrice": 720.8,
+    "entryPrice": 720.8,
+    "entryDate": "2026-06-12",
+    "stop": 706,
+    "target": 750,
+    "price": 717.94,
+    "value": 8615.28,
+    "stale": false
+   }
+  ]
+ }
+}

@@ -1,0 +1,10 @@
+{
+  "trades": [
+    { "ts": "2026-06-12T14:35:00Z", "trader": "Claude", "side": "BUY", "symbol": "MU",   "shares": 20,  "price": 992.88,  "value": 19857.60, "reason": "Memory-chip momentum leader of the semi rebound (+15% over 5 sessions); memory pricing crisis narrative breaking, highest relative strength in the group." },
+    { "ts": "2026-06-12T14:35:00Z", "trader": "Claude", "side": "BUY", "symbol": "AMD",  "shares": 35,  "price": 513.84,  "value": 17984.40, "reason": "V-shaped recovery from the June 5 AI-chip selloff (-10.9% day, now reclaimed); buying continuation of the technical rebound." },
+    { "ts": "2026-06-12T14:35:00Z", "trader": "Claude", "side": "BUY", "symbol": "INTC", "shares": 120, "price": 122.86,  "value": 14743.20, "reason": "Strongest 5-day mover among large-cap semis (+24% off the $99 panic low); momentum + short-squeeze fuel." },
+    { "ts": "2026-06-12T14:35:00Z", "trader": "Claude", "side": "BUY", "symbol": "MRVL", "shares": 50,  "price": 286.04,  "value": 14302.00, "reason": "Plunged 17% in the selloff, +8.6% rebounding; AI data-center story intact, selloff judged technical not fundamental." },
+    { "ts": "2026-06-12T14:35:00Z", "trader": "Claude", "side": "BUY", "symbol": "JPM",  "shares": 45,  "price": 320.875, "value": 14439.38, "reason": "Cyclical/financials rotation + lead underwriter halo on the largest IPO in history (SpaceX, ~$75B raise) pricing today." },
+    { "ts": "2026-06-12T14:35:00Z", "trader": "Claude", "side": "BUY", "symbol": "QQQ",  "shares": 12,  "price": 720.80,  "value": 8649.60,  "reason": "Index momentum core; market risk-on with US-Iran deal hopes, futures +0.5%. Liquid ballast I can exit instantly." }
+  ]
+}
