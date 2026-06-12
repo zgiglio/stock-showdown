@@ -1,11 +1,11 @@
 {
- "asOf": "2026-06-12T19:50:57.797Z",
+ "asOf": "2026-06-12T20:01:38.742Z",
  "startDate": "2026-06-12",
  "claude": {
   "cash": 1745.07,
-  "value": 4985.35,
-  "dayChange": -14.65,
-  "retPct": -0.293,
+  "value": 4986.44,
+  "dayChange": -13.55,
+  "retPct": -0.271,
   "baselineValue": 5000,
   "positions": [
    {
@@ -15,8 +15,8 @@
     "entryDate": "2026-06-12",
     "stop": 116,
     "target": 140,
-    "price": 124.95,
-    "value": 999.6,
+    "price": 124.57,
+    "value": 996.56,
     "stale": false
    },
    {
@@ -26,8 +26,8 @@
     "entryDate": "2026-06-12",
     "stop": 11.5,
     "target": 15,
-    "price": 12.435,
-    "value": 895.32,
+    "price": 12.53,
+    "value": 902.16,
     "stale": false
    },
    {
@@ -37,8 +37,8 @@
     "entryDate": "2026-06-12",
     "stop": 215,
     "target": 270,
-    "price": 235.92,
-    "value": 707.76,
+    "price": 234.485,
+    "value": 703.46,
     "stale": false
    },
    {
@@ -48,14 +48,14 @@
     "entryDate": "2026-06-12",
     "stop": 14.8,
     "target": 18.5,
-    "price": 15.94,
-    "value": 637.6,
+    "price": 15.98,
+    "value": 639.2,
     "stale": false
    }
   ]
  },
  "spy": {
-  "retPct": 0.04,
-  "price": 741
+  "retPct": 0.144,
+  "price": 741.77
  }
 }
