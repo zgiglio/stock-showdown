@@ -1,11 +1,11 @@
 {
- "asOf": "2026-06-12T20:02:14.478Z",
+ "asOf": "2026-06-12T20:43:48.316Z",
  "startDate": "2026-06-12",
  "claude": {
   "cash": 1745.07,
-  "value": 4986.44,
-  "dayChange": -13.55,
-  "retPct": -0.271,
+  "value": 4987.03,
+  "dayChange": -12.97,
+  "retPct": -0.259,
   "baselineValue": 5000,
   "positions": [
    {
@@ -37,8 +37,8 @@
     "entryDate": "2026-06-12",
     "stop": 215,
     "target": 270,
-    "price": 234.485,
-    "value": 703.46,
+    "price": 234.68,
+    "value": 704.04,
     "stale": false
    },
    {
@@ -55,7 +55,7 @@
   ]
  },
  "spy": {
-  "retPct": 0.144,
-  "price": 741.77
+  "retPct": 0.142,
+  "price": 741.75
  }
 }
