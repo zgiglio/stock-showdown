@@ -26,5 +26,11 @@ python3 -m http.server 8743 --directory stock-showdown   # then open http://loca
 ```
 
 ## When Zach trades
-Tell Claude (or edit `data/zach.json` shares/cash directly), then re-run the updater.
-Baseline prices stay frozen at the 2026-06-12 snapshot so % return stays honest.
+Easiest: in Fidelity (web or app), Positions → download/export CSV. Drop it in
+`~/Downloads` — the next scheduled session imports it automatically, or run:
+```sh
+node scripts/import-fidelity.mjs && node scripts/update.mjs
+```
+Or just tell Claude what you traded. Baseline prices stay frozen at the
+2026-06-12 snapshot so % return stays honest (new buys baseline at import price).
+Assumes no deposits/withdrawals — external cash flows would skew the % race.

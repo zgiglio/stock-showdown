@@ -55,7 +55,8 @@ const snapshot = {
 
 const histFile = join(root, 'data/history.json');
 const history = existsSync(histFile) ? JSON.parse(readFileSync(histFile, 'utf8')) : [];
-history.push({ ts: snapshot.asOf, zach: snapshot.zach.retPct, claude: snapshot.claude.retPct });
+history.push({ ts: snapshot.asOf, zach: snapshot.zach.retPct, claude: snapshot.claude.retPct,
+  zachVal: snapshot.zach.value, claudeVal: snapshot.claude.value });
 writeFileSync(histFile, JSON.stringify(history, null, 1));
 writeFileSync(join(root, 'data/snapshot.json'), JSON.stringify(snapshot, null, 1));
 

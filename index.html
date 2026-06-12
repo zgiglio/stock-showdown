@@ -21,7 +21,13 @@
     max-width: 760px; margin: 0 auto;
   }
   h1 { font-size: 22px; text-align: center; margin: 10px 0 2px; letter-spacing: .3px; }
-  .sub { text-align: center; color: var(--dim); font-size: 13px; margin-bottom: 16px; }
+  .sub { text-align: center; color: var(--dim); font-size: 13px; margin-bottom: 14px; }
+  .tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 14px; }
+  .tab {
+    background: var(--card); color: var(--dim); border: 1px solid var(--line);
+    border-radius: 999px; padding: 7px 22px; font: inherit; font-size: 14px; font-weight: 600;
+  }
+  .tab.active { color: var(--text); border-color: var(--gold); }
   .vs { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: stretch; }
   .fighter {
     background: var(--card); border: 1px solid var(--line); border-radius: 16px;
@@ -35,7 +41,7 @@
   .ret { font-size: 30px; font-weight: 800; margin: 6px 0 0; font-variant-numeric: tabular-nums; }
   .lbl { color: var(--dim); font-size: 10px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
   .val { color: var(--dim); font-size: 13px; font-variant-numeric: tabular-nums; }
-  .day { font-size: 12px; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .day { font-size: 12px; margin-top: 4px; font-weight: 600; font-variant-numeric: tabular-nums; }
   .mid { display: flex; align-items: center; font-weight: 800; color: var(--dim); font-size: 14px; }
   .up { color: var(--green); } .down { color: var(--red); }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 14px; margin-top: 14px; }
@@ -52,18 +58,38 @@
   .trade .r { font-size: 12px; color: var(--dim); margin-top: 2px; }
   .buy { color: var(--green); } .sell { color: var(--red); }
   .foot { text-align: center; color: var(--dim); font-size: 11px; margin-top: 18px; }
+  .ranges { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .rbtn {
+    background: var(--card2); color: var(--dim); border: 1px solid var(--line);
+    border-radius: 8px; padding: 5px 12px; font: inherit; font-size: 12px; font-weight: 600;
+  }
+  .rbtn.active { color: var(--text); border-color: var(--gold); }
+  .custom { display: none; gap: 8px; margin-bottom: 12px; align-items: center; color: var(--dim); font-size: 12px; }
+  .custom.show { display: flex; }
+  .custom input {
+    background: var(--card2); color: var(--text); border: 1px solid var(--line);
+    border-radius: 8px; padding: 5px 8px; font: inherit; font-size: 12px; color-scheme: dark;
+  }
+  #view-history { display: none; }
+  body.history #view-today { display: none; }
+  body.history #view-history { display: block; }
 </style>
 </head>
 <body>
 <h1>🥊 Giglio vs. The Machine</h1>
 <div class="sub" id="asof">loading…</div>
 
+<div class="tabs">
+  <button class="tab active" id="tab-today">Today</button>
+  <button class="tab" id="tab-history">History</button>
+</div>
+
 <div class="vs">
   <div class="fighter" id="f-zach">
     <div class="crown">👑</div>
     <div class="who zach">Zach</div>
     <div class="ret" id="ret-zach">–</div>
-    <div class="lbl">race score · since baseline</div>
+    <div class="lbl">today vs yesterday’s close</div>
     <div class="val" id="val-zach"></div>
     <div class="day" id="day-zach"></div>
   </div>
@@ -72,16 +98,41 @@
     <div class="crown">👑</div>
     <div class="who claude">Claude</div>
     <div class="ret" id="ret-claude">–</div>
-    <div class="lbl">race score · since baseline</div>
+    <div class="lbl">today vs yesterday’s close</div>
     <div class="val" id="val-claude"></div>
     <div class="day" id="day-claude"></div>
   </div>
 </div>
 
-<div class="card"><h2>The Race — % return since June 12, 2026</h2><canvas id="race" height="120"></canvas></div>
-<div class="card"><h2 style="color:var(--claude)">Claude's Book</h2><div id="pos-claude"></div></div>
-<div class="card"><h2 style="color:var(--zach)">Zach's Book</h2><div id="pos-zach"></div></div>
-<div class="card"><h2>Claude's Trade Log</h2><div id="trades"></div></div>
+<div id="view-today">
+  <div class="card"><h2>The Race — % return since June 12, 2026</h2><canvas id="race" height="120"></canvas></div>
+  <div class="card"><h2 style="color:var(--claude)">Claude's Book</h2><div id="pos-claude"></div></div>
+  <div class="card"><h2 style="color:var(--zach)">Zach's Book</h2><div id="pos-zach"></div></div>
+  <div class="card"><h2>Claude's Trade Log</h2><div id="trades"></div></div>
+</div>
+
+<div id="view-history">
+  <div class="card">
+    <h2>Race score over time</h2>
+    <div class="ranges" id="ranges">
+      <button class="rbtn" data-days="1">Day</button>
+      <button class="rbtn" data-days="7">Week</button>
+      <button class="rbtn" data-days="30">Month</button>
+      <button class="rbtn active" data-days="0">All</button>
+      <button class="rbtn" data-days="-1">Custom</button>
+    </div>
+    <div class="custom" id="custom">
+      from <input type="date" id="d-from"> to <input type="date" id="d-to">
+    </div>
+    <canvas id="histchart" height="120"></canvas>
+    <div style="display:flex;gap:14px;font-size:12px;color:var(--dim);margin-top:8px">
+      <span><span style="color:var(--zach)">●</span> Zach</span>
+      <span><span style="color:var(--claude)">●</span> Claude</span>
+    </div>
+  </div>
+  <div class="card"><h2>Day by day</h2><div id="daytable"></div></div>
+</div>
+
 <div class="foot">Paper-trading sandbox · real market prices · no real money moves<br>Both sides started at $128,398.48 (baseline snapshot 10:30 AM ET, Jun 12, 2026)</div>
 
 <!--__DATA__-->
@@ -89,6 +140,7 @@
 const $ = id => document.getElementById(id);
 const fmt$ = n => '$' + n.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
 const pct = n => (n >= 0 ? '+' : '') + n.toFixed(2) + '%';
+let HIST = [];
 
 async function load() {
   if (window.__DATA__) return window.__DATA__;
@@ -99,11 +151,14 @@ async function load() {
 }
 
 function fighter(side, book) {
-  $('ret-' + side).textContent = pct(book.retPct);
-  $('ret-' + side).className = 'ret ' + (book.retPct >= 0 ? 'up' : 'down');
-  $('val-' + side).textContent = fmt$(book.value);
-  $('day-' + side).textContent = 'vs yesterday’s close ' + (book.dayChange >= 0 ? '+$' : '−$') + fmt$(Math.abs(book.dayChange)).slice(1);
-  $('day-' + side).className = 'day ' + (book.dayChange >= 0 ? 'up' : 'down');
+  const dayBase = book.value - book.dayChange;
+  const dayPct = dayBase ? book.dayChange / dayBase * 100 : 0;
+  $('ret-' + side).textContent = pct(dayPct);
+  $('ret-' + side).className = 'ret ' + (dayPct >= 0 ? 'up' : 'down');
+  $('val-' + side).textContent = fmt$(book.value) + ' · ' +
+    (book.dayChange >= 0 ? '+$' : '−$') + fmt$(Math.abs(book.dayChange)).slice(1) + ' today';
+  $('day-' + side).textContent = 'race score ' + pct(book.retPct);
+  $('day-' + side).className = 'day ' + (book.retPct >= 0 ? 'up' : 'down');
 }
 
 function positions(el, book, topN) {
@@ -122,21 +177,25 @@ function positions(el, book, topN) {
   render(topN);
 }
 
-function race(history) {
-  const c = $('race'), dpr = devicePixelRatio || 1;
+function chart(canvas, points) {
+  const c = canvas, dpr = devicePixelRatio || 1;
   const W = c.clientWidth, H = 120; c.width = W * dpr; c.height = H * dpr;
-  const x = c.getContext('2d'); x.scale(dpr, dpr);
-  const all = history.flatMap(h => [h.zach, h.claude]);
+  const x = c.getContext('2d'); x.scale(dpr, dpr); x.clearRect(0, 0, W, H);
+  if (!points.length) {
+    x.fillStyle = '#8b94ab'; x.font = '13px sans-serif'; x.textAlign = 'center';
+    x.fillText('no data in this range', W / 2, H / 2); return;
+  }
+  const all = points.flatMap(h => [h.zach, h.claude]);
   const min = Math.min(...all, 0) - .3, max = Math.max(...all, 0) + .3;
-  const X = i => 8 + i / Math.max(history.length - 1, 1) * (W - 16);
+  const X = i => 8 + i / Math.max(points.length - 1, 1) * (W - 16);
   const Y = v => H - 10 - (v - min) / (max - min) * (H - 20);
   x.strokeStyle = '#232c42'; x.beginPath(); x.moveTo(8, Y(0)); x.lineTo(W - 8, Y(0)); x.stroke();
   for (const [key, color] of [['zach', '#5b9dff'], ['claude', '#d9822b']]) {
     x.strokeStyle = color; x.lineWidth = 2.5; x.beginPath();
-    history.forEach((h, i) => i ? x.lineTo(X(i), Y(h[key])) : x.moveTo(X(i), Y(h[key])));
+    points.forEach((h, i) => i ? x.lineTo(X(i), Y(h[key])) : x.moveTo(X(i), Y(h[key])));
     x.stroke();
-    const last = history[history.length - 1];
-    x.fillStyle = color; x.beginPath(); x.arc(X(history.length - 1), Y(last[key]), 4, 0, 7); x.fill();
+    const last = points[points.length - 1];
+    x.fillStyle = color; x.beginPath(); x.arc(X(points.length - 1), Y(last[key]), 4, 0, 7); x.fill();
   }
 }
 
@@ -147,14 +206,71 @@ function tradeLog(trades) {
       <div class="r">${t.reason}</div></div>`).join('');
 }
 
+// ---- History tab ----
+function filterHist(days, from, to) {
+  if (days === -1 && from && to)
+    return HIST.filter(h => h.ts.slice(0, 10) >= from && h.ts.slice(0, 10) <= to);
+  if (!days) return HIST;
+  const cutoff = new Date(Date.now() - days * 864e5).toISOString();
+  return HIST.filter(h => h.ts >= cutoff);
+}
+
+function dayTable(points) {
+  const byDay = new Map();
+  points.forEach(h => byDay.set(h.ts.slice(0, 10), h)); // last point per day wins
+  const days = [...byDay.entries()];
+  const rows = days.map(([d, h], i) => {
+    const prev = i ? days[i - 1][1] : { zach: 0, claude: 0 };
+    const zd = h.zach - prev.zach, cd = h.claude - prev.claude;
+    const lead = h.zach >= h.claude ? '🟦 Zach' : '🟧 Claude';
+    return `<tr><td>${d.slice(5)}</td>
+      <td class="${zd >= 0 ? 'up' : 'down'}">${pct(zd)}</td>
+      <td class="${cd >= 0 ? 'up' : 'down'}">${pct(cd)}</td>
+      <td class="${h.zach >= 0 ? 'up' : 'down'}">${pct(h.zach)}</td>
+      <td class="${h.claude >= 0 ? 'up' : 'down'}">${pct(h.claude)}</td>
+      <td>${lead}</td></tr>`;
+  }).reverse();
+  $('daytable').innerHTML = `<table>
+    <tr><th>Date</th><th>Zach Δ</th><th>Claude Δ</th><th>Zach total</th><th>Claude total</th><th>Leader</th></tr>
+    ${rows.join('')}</table>`;
+}
+
+function renderHistory() {
+  const active = document.querySelector('.rbtn.active');
+  const days = +active.dataset.days;
+  const pts = filterHist(days, $('d-from').value, $('d-to').value);
+  chart($('histchart'), pts);
+  dayTable(pts);
+}
+
+$('ranges').addEventListener('click', e => {
+  const b = e.target.closest('.rbtn'); if (!b) return;
+  document.querySelectorAll('.rbtn').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  $('custom').classList.toggle('show', b.dataset.days === '-1');
+  renderHistory();
+});
+$('d-from').addEventListener('change', renderHistory);
+$('d-to').addEventListener('change', renderHistory);
+$('tab-today').addEventListener('click', () => {
+  document.body.classList.remove('history');
+  $('tab-today').classList.add('active'); $('tab-history').classList.remove('active');
+});
+$('tab-history').addEventListener('click', () => {
+  document.body.classList.add('history');
+  $('tab-history').classList.add('active'); $('tab-today').classList.remove('active');
+  renderHistory();
+});
+
 load().then(({ snapshot, trades, history }) => {
+  HIST = history;
   $('asof').textContent = 'as of ' + new Date(snapshot.asOf).toLocaleString();
   fighter('zach', snapshot.zach); fighter('claude', snapshot.claude);
   const lead = snapshot.zach.retPct >= snapshot.claude.retPct ? 'zach' : 'claude';
   $('f-' + lead).classList.add('leader');
   positions($('pos-claude'), snapshot.claude, 10);
   positions($('pos-zach'), snapshot.zach, 10);
-  race(history); tradeLog(trades);
+  chart($('race'), history); tradeLog(trades);
 }).catch(e => { $('asof').textContent = 'failed to load data: ' + e.message; });
 if (!window.__DATA__) setTimeout(() => location.reload(), 5 * 60 * 1000);
 </script>
