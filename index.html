@@ -32,7 +32,8 @@
   .fighter.leader .crown { display: block; }
   .who { font-size: 13px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; }
   .who.zach { color: var(--zach); } .who.claude { color: var(--claude); }
-  .ret { font-size: 30px; font-weight: 800; margin: 6px 0 2px; font-variant-numeric: tabular-nums; }
+  .ret { font-size: 30px; font-weight: 800; margin: 6px 0 0; font-variant-numeric: tabular-nums; }
+  .lbl { color: var(--dim); font-size: 10px; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 4px; }
   .val { color: var(--dim); font-size: 13px; font-variant-numeric: tabular-nums; }
   .day { font-size: 12px; margin-top: 4px; font-variant-numeric: tabular-nums; }
   .mid { display: flex; align-items: center; font-weight: 800; color: var(--dim); font-size: 14px; }
@@ -62,6 +63,7 @@
     <div class="crown">👑</div>
     <div class="who zach">Zach</div>
     <div class="ret" id="ret-zach">–</div>
+    <div class="lbl">race score · since baseline</div>
     <div class="val" id="val-zach"></div>
     <div class="day" id="day-zach"></div>
   </div>
@@ -70,6 +72,7 @@
     <div class="crown">👑</div>
     <div class="who claude">Claude</div>
     <div class="ret" id="ret-claude">–</div>
+    <div class="lbl">race score · since baseline</div>
     <div class="val" id="val-claude"></div>
     <div class="day" id="day-claude"></div>
   </div>
@@ -79,7 +82,7 @@
 <div class="card"><h2 style="color:var(--claude)">Claude's Book</h2><div id="pos-claude"></div></div>
 <div class="card"><h2 style="color:var(--zach)">Zach's Book</h2><div id="pos-zach"></div></div>
 <div class="card"><h2>Claude's Trade Log</h2><div id="trades"></div></div>
-<div class="foot">Paper-trading sandbox · real market prices · no real money moves<br>Both sides started at $128,398.48 on Jun 12, 2026</div>
+<div class="foot">Paper-trading sandbox · real market prices · no real money moves<br>Both sides started at $128,398.48 (baseline snapshot 10:30 AM ET, Jun 12, 2026)</div>
 
 <!--__DATA__-->
 <script>
@@ -99,7 +102,7 @@ function fighter(side, book) {
   $('ret-' + side).textContent = pct(book.retPct);
   $('ret-' + side).className = 'ret ' + (book.retPct >= 0 ? 'up' : 'down');
   $('val-' + side).textContent = fmt$(book.value);
-  $('day-' + side).textContent = 'today ' + (book.dayChange >= 0 ? '+' : '−') + fmt$(Math.abs(book.dayChange)).slice(1);
+  $('day-' + side).textContent = 'vs yesterday’s close ' + (book.dayChange >= 0 ? '+$' : '−$') + fmt$(Math.abs(book.dayChange)).slice(1);
   $('day-' + side).className = 'day ' + (book.dayChange >= 0 ? 'up' : 'down');
 }
 
